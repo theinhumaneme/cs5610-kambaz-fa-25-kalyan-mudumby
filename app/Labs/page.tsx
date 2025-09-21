@@ -3,6 +3,8 @@ export default function Labs() {
   return (
     <div id="wd-labs">
       <h1>Labs</h1>
+      <h2>Kalyana Ramanuja Swami Mudumby</h2>
+      <h3>Fall 2025 - Section 4</h3>
       <ul>
         <li>
           <Link href="/Labs/Lab1" id="wd-lab1-link">
@@ -22,6 +24,16 @@ export default function Labs() {
         <li>
           <Link href="/" id="wd-lab3-link">
             Kambaz{" "}
+          </Link>{" "}
+        </li>
+        <li>
+          <Link href="https://cs5610-kambaz-fa-25-kalyan-mudumby.vercel.app/" id="wd-lab3-link">
+            Deployed Application Link{" "}
+          </Link>{" "}
+        </li>
+        <li>
+          <Link href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby" id="wd-lab3-link">
+            GitHub Repository{" "}
           </Link>{" "}
         </li>
       </ul>
