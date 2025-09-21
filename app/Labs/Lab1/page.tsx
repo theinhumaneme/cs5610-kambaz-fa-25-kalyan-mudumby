@@ -96,20 +96,68 @@ export default function Lab1() {
             <tr>
               <td>Q1</td>
               <td>HTML</td>
-              <td>2/3/21</td>
+              <td>09/2/25</td>
               <td>85</td>
             </tr>
             <tr>
               <td>Q2</td>
               <td>CSS</td>
-              <td>2/10/21</td>
+              <td>09/09/25</td>
               <td>90</td>
+            </tr>
+            <tr>
+              <td>Q3</td>
+              <td>Javascript</td>
+              <td>09/16/25</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>Q4</td>
+              <td>Bootstrap</td>
+              <td>09/23/25</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Q5</td>
+              <td>NodeJS</td>
+              <td>09/30/25</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>Q6</td>
+              <td>ExpressJS</td>
+              <td>10/07/25</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>Q7</td>
+              <td>MongoDB</td>
+              <td>10/14/25</td>
+              <td>85</td>
+            </tr>
+            <tr>
+              <td>Q8</td>
+              <td>SurrealDB</td>
+              <td>10/21/25</td>
+              <td>80</td>
+            </tr>
+            <tr>
+              <td>Q9</td>
+              <td>CSS</td>
+              <td>10/28/25</td>
+              <td>75</td>
+            </tr>
+            <tr>
+              <td>Q10</td>
+              <td>CSS</td>
+              <td>11/05/25</td>
+              <td>70</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <td colSpan={3}>Average</td>
-              <td>90</td>
+              <td>87</td>
             </tr>
           </tfoot>
         </table>
@@ -257,6 +305,7 @@ export default function Lab1() {
       </a>
       to get dummy text
       <br />
+
       <h4>Anchor tag</h4>
       Please
       <a href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby" id="wd-github">
