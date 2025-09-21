@@ -27,7 +27,7 @@ export default function Assignments() {
             href="/Courses/1234/Assignments/123"
             className="wd-assignment-link"
           >
-            A1 - CSS + BOOTSTRAP
+            A2 - CSS + BOOTSTRAP
           </Link>
           <p>
             Multiple Modules | <b>Not available until</b> May 13 at 12:00 AM |{" "}
@@ -39,7 +39,7 @@ export default function Assignments() {
             href="/Courses/1234/Assignments/123"
             className="wd-assignment-link"
           >
-            A1 - JAVASCRIPT + REACT
+            A3 - JAVASCRIPT + REACT
           </Link>
           <p>
             Multiple Modules | <b>Not available until</b> May 20 at 12:00 AM |{" "}
