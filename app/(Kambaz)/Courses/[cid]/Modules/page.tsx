@@ -19,11 +19,38 @@ export default function Modules() {
         </li>
         <li className="wd-module">
           <div className="wd-title">Week 2</div>
+          <ul className="wd-lessons">
+            <li className="wd-lesson">
+              <span className="wd-title">Intro to Internet</span>
+              <ul className="wd-content">
+                <li className="wd-content-item">History of the Internet</li>
+                <li className="wd-content-item">
+                  Intranet vs Internet
+                </li>
+                <li className="wd-content-item">
+                  Types of network
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li className="wd-module">
-          <div className="wd-title">Week 3</div>
+          <div className="wd-title">Into to HTML</div>
+          <ul className="wd-lessons">
+            <li className="wd-lesson">
+              <span className="wd-title">LEARNING OBJECTIVES</span>
+              <ul>
+                <li className="wd-content-item">
+                  XMl vs HTML, All about Markup Languages
+                </li>
+                <li className="wd-content-item">
+                  HTML elements
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
       </ul>
-    </div>
+    </div >
   );
 }
