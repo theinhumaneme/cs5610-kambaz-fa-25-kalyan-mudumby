@@ -99,6 +99,7 @@ export default function AssignmentEditor() {
           <td>
             <select id="wd-points">
               <option defaultValue="">Everyone</option>
+              <option defaultValue="">TA</option>
             </select>
           </td>
         </tr>
@@ -153,14 +154,16 @@ export default function AssignmentEditor() {
             />
           </td>
         </tr>
-      </table>
-      <hr />
-      <table>
         <tr>
-          <td align="left">
-            <input type="button" value="Cancel" />
+          <td colSpan={5}>
+            <hr />
           </td>
-          <td align="left">
+        </tr>
+        <tr>
+          <td colSpan={2}>
+          </td>
+          <td colSpan={3}>
+            <input type="button" value="Cancel" />
             <input type="button" value="Save" />
           </td>
         </tr>
