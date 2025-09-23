@@ -5,7 +5,7 @@ export default function Modules() {
       <div>
         <button>Collapse All</button>
         <button>View Progress</button>
-        <select >
+        <select>
           <option value="PUBLISH-ALL">Publish All</option>
           <option value="SCHEDULE">Schedule</option>
         </select>
@@ -33,12 +33,8 @@ export default function Modules() {
               <span className="wd-title">Intro to Internet</span>
               <ul className="wd-content">
                 <li className="wd-content-item">History of the Internet</li>
-                <li className="wd-content-item">
-                  Intranet vs Internet
-                </li>
-                <li className="wd-content-item">
-                  Types of network
-                </li>
+                <li className="wd-content-item">Intranet vs Internet</li>
+                <li className="wd-content-item">Types of network</li>
               </ul>
             </li>
           </ul>
@@ -52,14 +48,12 @@ export default function Modules() {
                 <li className="wd-content-item">
                   XMl vs HTML, All about Markup Languages
                 </li>
-                <li className="wd-content-item">
-                  HTML elements
-                </li>
+                <li className="wd-content-item">HTML elements</li>
               </ul>
             </li>
           </ul>
         </li>
       </ul>
-    </div >
+    </div>
   );
 }

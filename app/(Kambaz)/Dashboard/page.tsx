@@ -8,7 +8,12 @@ export default function Dashboard() {
       <div id="wd-dashboard-courses">
         <div className="wd-dashboard-course">
           <Link href="/Courses/1234" className="wd-dashboard-course-link">
-            <Image src="/images/reactjs.webp" width={200} height={150} alt="reactjs" />
+            <Image
+              src="/images/reactjs.webp"
+              width={200}
+              height={150}
+              alt="reactjs"
+            />
             <div>
               <h5> CS1234 React JS </h5>
               <p className="wd-dashboard-course-title">
@@ -20,31 +25,42 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link href="/Courses/4567" className="wd-dashboard-course-link">
-            <Image src="/images/vuejs.png" width={200} height={150} alt="vuejs" />
+            <Image
+              src="/images/vuejs.png"
+              width={200}
+              height={150}
+              alt="vuejs"
+            />
             <div>
               <h5> CS4567 Vue JS </h5>
-              <p className="wd-dashboard-course-title">
-                Vue.Js Developer
-              </p>
+              <p className="wd-dashboard-course-title">Vue.Js Developer</p>
               <button> Go </button>
             </div>
           </Link>
         </div>
         <div className="wd-dashboard-course">
           <Link href="/Courses/8745" className="wd-dashboard-course-link">
-            <Image src="/images/solidjs.png" width={200} height={150} alt="solidjs" />
+            <Image
+              src="/images/solidjs.png"
+              width={200}
+              height={150}
+              alt="solidjs"
+            />
             <div>
               <h5> CS8745 Solid JS </h5>
-              <p className="wd-dashboard-course-title">
-                Solid.Js Developer
-              </p>
+              <p className="wd-dashboard-course-title">Solid.Js Developer</p>
               <button> Go </button>
             </div>
           </Link>
         </div>
         <div className="wd-dashboard-course">
           <Link href="/Courses/9874" className="wd-dashboard-course-link">
-            <Image src="/images/solidjs.png" width={200} height={150} alt="solidjs" />
+            <Image
+              src="/images/solidjs.png"
+              width={200}
+              height={150}
+              alt="solidjs"
+            />
             <div>
               <h5> CS9874 Advanced Solid JS </h5>
               <p className="wd-dashboard-course-title">
@@ -56,7 +72,12 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link href="/Courses/0258" className="wd-dashboard-course-link">
-            <Image src="/images/reactjs.webp" width={200} height={150} alt="reactjs" />
+            <Image
+              src="/images/reactjs.webp"
+              width={200}
+              height={150}
+              alt="reactjs"
+            />
             <div>
               <h5> CS0258 React JS </h5>
               <p className="wd-dashboard-course-title">
@@ -68,12 +89,15 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link href="/Courses/3456" className="wd-dashboard-course-link">
-            <Image src="/images/angular.png" width={200} height={150} alt="angular" />
+            <Image
+              src="/images/angular.png"
+              width={200}
+              height={150}
+              alt="angular"
+            />
             <div>
               <h5> CS3456 Angular </h5>
-              <p className="wd-dashboard-course-title">
-                Angular Developer
-              </p>
+              <p className="wd-dashboard-course-title">Angular Developer</p>
               <button> Go </button>
             </div>
           </Link>

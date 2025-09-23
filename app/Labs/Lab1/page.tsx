@@ -305,10 +305,12 @@ export default function Lab1() {
       </a>
       to get dummy text
       <br />
-
       <h4>Anchor tag</h4>
       Please
-      <a href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby" id="wd-github">
+      <a
+        href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby"
+        id="wd-github"
+      >
         click here
       </a>
       for my code-repository

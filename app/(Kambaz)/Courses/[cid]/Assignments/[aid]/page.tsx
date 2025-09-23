@@ -160,8 +160,7 @@ export default function AssignmentEditor() {
           </td>
         </tr>
         <tr>
-          <td colSpan={2}>
-          </td>
+          <td colSpan={2}></td>
           <td colSpan={3}>
             <input type="button" value="Cancel" />
             <input type="button" value="Save" />

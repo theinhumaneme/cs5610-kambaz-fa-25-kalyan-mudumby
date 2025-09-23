@@ -18,15 +18,15 @@ export default function Profile() {
       <br />
       <input defaultValue="Kalyan" placeholder="First Name" id="wd-firstname" />
       <br />
-      <input
-        defaultValue="Mudumby"
-        placeholder="Last Name"
-        id="wd-lastname"
-      />
+      <input defaultValue="Mudumby" placeholder="Last Name" id="wd-lastname" />
       <br />
       <input defaultValue="2002-02-23" type="date" id="wd-dob" />
       <br />
-      <input defaultValue="mudumby.k@northeastern.edu" type="email" id="wd-email" />
+      <input
+        defaultValue="mudumby.k@northeastern.edu"
+        type="email"
+        id="wd-email"
+      />
       <br />
       <select defaultValue="STUDENT" id="wd-role">
         <option value="USER">User</option> <option value="ADMIN">Admin</option>

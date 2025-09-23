@@ -28,12 +28,18 @@ export default function TOC() {
         </Link>{" "}
       </li>
       <li>
-        <Link href="https://cs5610-kambaz-fa-25-kalyan-mudumby.vercel.app/" id="wd-lab3-link">
+        <Link
+          href="https://cs5610-kambaz-fa-25-kalyan-mudumby.vercel.app/"
+          id="wd-lab3-link"
+        >
           Deployed Application Link{" "}
         </Link>{" "}
       </li>
       <li>
-        <Link href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby" id="wd-lab3-link">
+        <Link
+          href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby"
+          id="wd-lab3-link"
+        >
           GitHub Repository{" "}
         </Link>{" "}
       </li>
