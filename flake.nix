@@ -42,9 +42,9 @@
 
 
               # Add Build & DevEnv Dependencies
-              docker # Ensure that docker.service is running on your OS
-              docker-compose
-              docker-buildx
+              #docker # Ensure that docker.service is running on your OS
+              #docker-compose
+              #docker-buildx
               #
             ];
           };
