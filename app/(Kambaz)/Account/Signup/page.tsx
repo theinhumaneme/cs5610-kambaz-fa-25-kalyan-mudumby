@@ -3,8 +3,8 @@ import { Col, FormControl } from "react-bootstrap";
 export default function Signup() {
   return (
     <Col xs={4}>
-      <div id="wd-signin-screen">
-        <h1>Sign in</h1>
+      <div id="wd-signup-screen">
+        <h1>Sign Up</h1>
         <FormControl
           id="wd-username"
           className="mb-2"
@@ -26,15 +26,15 @@ export default function Signup() {
           defaultValue="CS5610"
         />
         <Link
-          id="wd-signin-btn"
-          href="/Signin"
+          id="wd-signup-btn"
+          href="Profile"
           className="btn btn-primary w-100 mb-2"
         >
-          Sign in{" "}
+          Sign Up{" "}
         </Link>
         <br />
-        <Link id="wd-signup-link" href="Profile">
-          Sign up
+        <Link id="wd-sigin-link" href="Signin">
+          Sign in
         </Link>
       </div>
     </Col>
