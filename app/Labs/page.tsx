@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.min.css";
 export default function Labs() {
   return (
     <div id="wd-labs">

@@ -33,7 +33,7 @@ export default function TOC() {
           href="https://cs5610-kambaz-fa-25-kalyan-mudumby.vercel.app/"
           as={Link}
         >
-          Vercel Link`
+          Vercel Link
         </NavLink>
       </NavItem>
       <NavItem>
