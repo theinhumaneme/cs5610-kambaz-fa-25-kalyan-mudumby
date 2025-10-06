@@ -28,6 +28,9 @@ export default function AssignmentEditor() {
                 className="mt-2"
                 id="wd-description"
                 as="textarea"
+                defaultValue={
+                  "The assignment is available online Submit a link to the landing page of"
+                }
                 rows={3}
               ></FormControl>
             </Col>
