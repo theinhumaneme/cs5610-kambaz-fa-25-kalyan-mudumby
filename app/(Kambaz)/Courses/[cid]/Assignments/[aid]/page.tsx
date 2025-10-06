@@ -117,10 +117,11 @@ export default function AssignmentEditor() {
               <FormLabel htmlFor="wd-assign-to">Assign To</FormLabel>
             </Col>
             <Col md={4} className="border border-secondary rounded p-2">
-              <FormSelect id="wd-assign-to" value={"EVERYONE"}>
-                <option value="EVERYONE">Everyone</option>
-                <option value="TA">Teaching Assistant</option>
-              </FormSelect>
+              <FormControl
+                id="wd-assign-to"
+                type="text"
+                defaultValue={"Everyone"}
+              ></FormControl>
               <FormLabel className="mt-2" htmlFor="wd-due-date">
                 Due Date
               </FormLabel>
