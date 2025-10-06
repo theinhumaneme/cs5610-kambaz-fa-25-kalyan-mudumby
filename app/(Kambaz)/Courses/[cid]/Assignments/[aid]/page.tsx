@@ -7,9 +7,12 @@ export default function AssignmentEditor() {
       <input id="wd-name" defaultValue="A1 - ENV + HTML" />
       <br />
       <br />
-      <textarea id="wd-description">
-        The assignment is available online Submit a link to the landing page of
-      </textarea>
+      <textarea
+        id="wd-description"
+        defaultValue={
+          "The assignment is available online Submit a link to the landing page of"
+        }
+      ></textarea>
       <br />
       <table>
         <tr>
@@ -103,12 +106,7 @@ export default function AssignmentEditor() {
             <label htmlFor="wd-assign-to">Assign to</label>
           </td>
           <td>
-            <select id="wd-points">
-              <option value="EVERYONE">Everyone</option>
-              <option selected={true} value="TEACHING-ASSISTANT">
-                TA
-              </option>
-            </select>
+            <input id="wd-assign-to" defaultValue="EVERYONE" /> 
           </td>
         </tr>
         <tr>

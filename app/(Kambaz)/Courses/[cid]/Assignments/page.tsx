@@ -46,6 +46,60 @@ export default function Assignments() {
             <b>Due</b> May 27 at 11:59pm | 100pts{" "}
           </p>
         </li>
+        <li className="wd-quiz-list-item">
+          <Link href="/Courses/1234/quiz/123" className="wd-quiz-link">
+            Q1 - ENV + HTML
+          </Link>
+          <p>
+            Multiple Modules | <b>Not available until</b> May 7 at 12:00 AM |{" "}
+            <b>Due</b> May 7 at 11:59pm | 100pts{" "}
+          </p>
+        </li>
+        <li className="wd-quiz-list-item">
+          <Link href="/Courses/1234/Quiz/123" className="wd-quiz-link">
+            Q2 - CSS + BOOTSTRAP
+          </Link>
+          <p>
+            Multiple Modules | <b>Not available until</b> May 13 at 12:00 AM |{" "}
+            <b>Due</b> May 13 at 11:59pm | 100pts{" "}
+          </p>
+        </li>
+        <li className="wd-quiz-list-item">
+          <Link href="/Courses/1234/Quiz/123" className="wd-quiz-link">
+            Q3 - JAVASCRIPT + REACT
+          </Link>
+          <p>
+            Multiple Modules | <b>Not available until</b> May 20 at 12:00 AM |{" "}
+            <b>Due</b> May 20 at 11:59pm | 100pts{" "}
+          </p>
+        </li>
+        <li className="wd-project-list-item">
+          <Link href="/Courses/1234/Project/123" className="wd-project-link">
+            Project
+          </Link>
+          <p>
+            Multiple Modules | <b>Not available until</b> May 6 at 12:00 AM |{" "}
+            <b>Due</b> August 31 at 11:59pm | 100pts{" "}
+          </p>
+        </li>
+        <li className="wd-project-list-item">
+          <Link href="/Courses/1234/Exam/123" className="wd-exam-link">
+            Mid Term Exam
+          </Link>
+          <p>
+            Multiple Modules | <b>Not available until</b> July 31 at 12:00 AM |{" "}
+            <b>Due</b> July 31 at 11:59pm | 100pts{" "}
+          </p>
+        </li>
+        <li className="wd-project-list-item">
+          <Link href="/Courses/1234/Exam/123" className="wd-exam-link">
+            Final Exam
+          </Link>
+          <p>
+            Multiple Modules | <b>Not available until</b> August 31 at 12:00 AM
+            | <b>Due</b> August 31 at 11:59pm | 100pts{" "}
+          </p>
+        </li>
       </ul>
     </div>
   );
