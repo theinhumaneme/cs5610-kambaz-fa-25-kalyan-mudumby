@@ -21,7 +21,7 @@ export default function KambazNavigation() {
           target="_blank"
         >
           <img
-            src="/images/neu.svg"
+            src="/images/neu.png"
             width="75px"
             alt="Northeastern University"
           />
