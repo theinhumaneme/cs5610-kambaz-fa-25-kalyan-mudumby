@@ -26,6 +26,11 @@ export default function Lab2() {
     <Container>
       <h2>Lab 2 - Cascading Style Sheets</h2>
       <h3>Styling with the STYLE attribute</h3>
+      <p style={{ backgroundColor: "green", color: "white" }}>
+        Style attribute allows configuring look and feel right on the element.
+        Although it&rsquoss very convenient it is considered bad practice and
+        you should avoid using the style attribute
+      </p>
       <div id="wd-css-id-selectors">
         <h3>ID selectors</h3>
         <p id="wd-id-selector-1">
@@ -90,7 +95,7 @@ export default function Lab2() {
       <ScreenSizeLabel></ScreenSizeLabel>
       <BootstrapTables></BootstrapTables>
       <BootstrapLists></BootstrapLists>
-      {/* <BootstrapForms></BootstrapForms> */}
+      <BootstrapForms></BootstrapForms>
       <BootstrapNavigation></BootstrapNavigation>
     </Container>
   );
