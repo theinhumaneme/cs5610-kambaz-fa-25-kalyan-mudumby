@@ -106,7 +106,7 @@ export default function AssignmentEditor() {
             <label htmlFor="wd-assign-to">Assign to</label>
           </td>
           <td>
-            <input id="wd-assign-to" defaultValue="EVERYONE" />
+            <input id="wd-assign-to" defaultValue="EVERYONE" /> 
           </td>
         </tr>
         <tr>
