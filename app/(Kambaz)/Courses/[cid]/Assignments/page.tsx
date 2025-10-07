@@ -1,13 +1,12 @@
 import Link from "next/link";
-import TopToolBar from "../Modules/TopToolBar";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
-import { BsGripVertical } from "react-icons/bs";
-import LessonControlButton from "../Modules/LessonControlsButton";
-import { MdOutlineAssignment } from "react-icons/md";
-import { BsClipboardCheck } from "react-icons/bs";
+import { BsClipboardCheck, BsGripVertical } from "react-icons/bs";
 import { FaFolderOpen } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { MdOutlineAssignment } from "react-icons/md";
 import AssignmentControls from "../Modules/AssignmentControls";
+import LessonControlButton from "../Modules/LessonControlsButton";
+import TopToolBar from "../Modules/TopToolBar";
 
 export default function Assignments() {
   return (

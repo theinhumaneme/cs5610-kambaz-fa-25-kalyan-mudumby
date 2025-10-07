@@ -1,4 +1,4 @@
-import { FaCheckCircle, FaCircle } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa";
 import { MdBlock } from "react-icons/md";
 export default function DeleteIcon() {
   return (

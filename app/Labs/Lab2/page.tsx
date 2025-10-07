@@ -1,5 +1,11 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import BackgroundColors from "./BackgroundColors";
+import BootstrapForms from "./BootstrapForms";
+import BootstrapGrids from "./BootstrapGrids";
+import BootstrapLists from "./BootstrapLists";
+import BootstrapNavigation from "./BootstrapNavigation";
+import BootstrapTables from "./BootstrapTables";
 import Borders from "./Borders";
 import Corners from "./Corners";
 import Dimensions from "./Dimensions";
@@ -11,15 +17,9 @@ import Margins from "./Margins";
 import Padding from "./Padding";
 import Position from "./Positions";
 import ReactIconsSampler from "./ReactIcons";
+import ScreenSizeLabel from "./ScreenSizeLabel";
 import Zindex from "./Zindex";
 import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import BootstrapGrids from "./BootstrapGrids";
-import ScreenSizeLabel from "./ScreenSizeLabel";
-import BootstrapTables from "./BootstrapTables";
-import BootstrapLists from "./BootstrapLists";
-import BootstrapForms from "./BootstrapForms";
-import BootstrapNavigation from "./BootstrapNavigation";
 
 export default function Lab2() {
   return (

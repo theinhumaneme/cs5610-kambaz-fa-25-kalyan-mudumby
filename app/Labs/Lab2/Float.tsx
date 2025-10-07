@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Float() {
   return (
     <div id="wd-float-divs">

@@ -1,11 +1,11 @@
 import { Button, Container } from "react-bootstrap";
-import GreenCheckmark from "../Modules/GreenCheckmark";
-import DeleteIcon from "../Modules/DeleteIcon";
 import { CiImport } from "react-icons/ci";
-import { IoBarChart, IoExitOutline } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
-import { TfiAnnouncement } from "react-icons/tfi";
 import { FaBell } from "react-icons/fa6";
+import { IoBarChart, IoExitOutline } from "react-icons/io5";
+import { TfiAnnouncement } from "react-icons/tfi";
+import DeleteIcon from "../Modules/DeleteIcon";
+import GreenCheckmark from "../Modules/GreenCheckmark";
 
 export default function CourseStatus() {
   return (

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import CourseNavigation from "./navigation";
 import { FaAlignJustify } from "react-icons/fa";
+import CourseNavigation from "./navigation";
 export default async function CoursesLayout({
   children,
   params,
