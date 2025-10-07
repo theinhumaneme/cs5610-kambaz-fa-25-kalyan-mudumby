@@ -47,9 +47,9 @@ export default function Position() {
       <div id="wd-css-position-fixed">
         <h2>Fixed position</h2>
         <p>
-          Checkout the blue square that says &rsquoFixed position&rsquo stuck
-          all the way on the right and half way down the page. It doesn&rsquot
-          scroll with the rest of the page. Its position is &rsquoFixed&rsquo.
+          Checkout the blue square that says &rsquo;Fixed position&rsquo; stuck
+          all the way on the right and half way down the page. It doesn&rsquo;t
+          scroll with the rest of the page. Its position is &rsquo;Fixed&rsquo;.
         </p>
         <div
           className="wd-pos-fixed 
