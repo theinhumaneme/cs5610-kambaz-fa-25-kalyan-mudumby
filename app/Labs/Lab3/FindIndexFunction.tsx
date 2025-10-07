@@ -1,0 +1,15 @@
+export default function FindIndexFunction() {
+  const numberArray1 = [1, 2, 4, 5, 6];
+  const stringArray1 = ["string1", "string3"];
+
+  const fourIndex = numberArray1.findIndex((a) => a === 4);
+  const string3Index = stringArray1.findIndex((a) => a === "string3");
+  return (
+    <div id="wd-find-index-function">
+      <h4>Find Index Function</h4>
+      <p>Index 4 = {fourIndex}</p>
+      <p>String 3 Index = {string3Index}</p>
+      <hr />
+    </div>
+  );
+}
