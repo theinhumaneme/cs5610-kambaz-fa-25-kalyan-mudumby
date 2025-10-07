@@ -31,16 +31,12 @@ export default function Dashboard() {
                   alt="reactjs"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS1234 React JS</CardTitle>
+                  <CardText>Full Stack software developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS1234 React JS </h5>
-                  <p className="wd-dashboard-course-title">
-                    Full Stack software developer
-                  </p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
@@ -58,14 +54,12 @@ export default function Dashboard() {
                   alt="vuejs"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS4567 Vue JS</CardTitle>
+                  <CardText>Vue.Js Developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS4567 Vue JS </h5>
-                  <p className="wd-dashboard-course-title">Vue.Js Developer</p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
@@ -84,16 +78,12 @@ export default function Dashboard() {
                   alt="solidjs"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS8745 Solid JS</CardTitle>
+                  <CardText>Solid.Js Developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS8745 Solid JS </h5>
-                  <p className="wd-dashboard-course-title">
-                    Solid.Js Developer
-                  </p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
@@ -112,16 +102,12 @@ export default function Dashboard() {
                   alt="solidjs"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS9874 Advanced Solid JS</CardTitle>
+                  <CardText>Senior Solid.Js Developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS9874 Advanced Solid JS </h5>
-                  <p className="wd-dashboard-course-title">
-                    Senior Solid.Js Developer
-                  </p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
@@ -140,16 +126,12 @@ export default function Dashboard() {
                   alt="reactjs"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS0258 React JS</CardTitle>
+                  <CardText>Senior ReactJS Developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS0258 React JS </h5>
-                  <p className="wd-dashboard-course-title">
-                    Senior ReactJS Developer
-                  </p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
@@ -168,14 +150,12 @@ export default function Dashboard() {
                   alt="angular"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS3456 Angular</CardTitle>
+                  <CardText>Angular Developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS3456 Angular </h5>
-                  <p className="wd-dashboard-course-title">Angular Developer</p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
@@ -193,14 +173,12 @@ export default function Dashboard() {
                   alt="angular"
                 />
                 <CardBody>
-                  <CardTitle></CardTitle>
-                  <CardText></CardText>
+                  <CardTitle>CS3456 Senior Angular Developer</CardTitle>
+                  <CardText>Angular Developer</CardText>
+                  <Button variant="primary" className="p-2 m-2">
+                    Go
+                  </Button>
                 </CardBody>
-                <div>
-                  <h5> CS3456 Senior Angular Developer </h5>
-                  <p className="wd-dashboard-course-title">Angular Developer</p>
-                  <Button variant="primary"> Go </Button>
-                </div>
               </Link>
             </Card>
           </Col>
