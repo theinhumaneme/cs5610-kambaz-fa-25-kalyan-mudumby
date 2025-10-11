@@ -4,8 +4,8 @@ import { FaHome } from "react-icons/fa";
 import { FaBell } from "react-icons/fa6";
 import { IoBarChart, IoExitOutline } from "react-icons/io5";
 import { TfiAnnouncement } from "react-icons/tfi";
-import DeleteIcon from "../Modules/DeleteIcon";
-import GreenCheckmark from "../Modules/GreenCheckmark";
+import DeleteIcon from "../components/DeleteIcon";
+import GreenCheckmark from "../components/GreenCheckmark";
 
 export default function CourseStatus() {
   return (

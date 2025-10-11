@@ -6,8 +6,8 @@ import {
   DropdownToggle,
 } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa6";
-import DeleteIcon from "./DeleteIcon";
-import GreenCheckmark from "./GreenCheckmark";
+import DeleteIcon from "../components/DeleteIcon";
+import GreenCheckmark from "../components/GreenCheckmark";
 export default function ModulesControls() {
   return (
     <div id="wd-modules-controls" className="text-nowrap">
