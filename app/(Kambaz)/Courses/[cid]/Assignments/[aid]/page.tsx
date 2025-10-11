@@ -1,3 +1,4 @@
+import { assignments } from "@/app/(Kambaz)/Database";
 import {
   Button,
   Col,
@@ -10,7 +11,15 @@ import {
   Row,
 } from "react-bootstrap";
 
-export default function AssignmentEditor() {
+export default async function AssignmentEditor({
+  params,
+}: {
+  params: Promise<{ cid: string; aid: string }>;
+}) {
+  const { cid, aid } = await params;
+  const assignment: Assignment = assignments.filter(
+    (assignment: Assignment) => assignment._id === aid,
+  )[0];
   return (
     <div id="wd-assignments-editor">
       <Form>
@@ -21,15 +30,13 @@ export default function AssignmentEditor() {
               <FormControl
                 id="wd-name"
                 type="text"
-                defaultValue={"A1 - ENV + HTML"}
+                defaultValue={assignment.title}
               ></FormControl>
               <FormControl
                 className="mt-2"
                 id="wd-description"
                 as="textarea"
-                defaultValue={
-                  "The assignment is available online Submit a link to the landing page of"
-                }
+                defaultValue={assignment.description}
                 rows={3}
               ></FormControl>
             </Col>
@@ -42,7 +49,7 @@ export default function AssignmentEditor() {
               <FormControl
                 id="wd-points"
                 type="number"
-                defaultValue={100}
+                defaultValue={assignment.points}
               ></FormControl>
             </Col>
           </Row>
@@ -66,9 +73,11 @@ export default function AssignmentEditor() {
               </FormLabel>
             </Col>
             <Col md={4}>
-              <FormSelect id="wd-display-grade-as" value={"GRADE-POINT"}>
+              <FormSelect id="wd-display-grade-as">
                 <option value="PERCENTAGE">Percentage</option>
-                <option value="GRADE-POINT">Grade Point</option>
+                <option selected={true} value="GRADE-POINT">
+                  Grade Point
+                </option>
               </FormSelect>
             </Col>
           </Row>
@@ -128,9 +137,9 @@ export default function AssignmentEditor() {
                 type="date"
                 id="wd-due-date"
                 name="trip-start"
-                defaultValue="2025-09-29"
+                defaultValue={assignment.dueDate}
                 min="2018-01-01"
-                max="2018-12-31"
+                max="2040-12-31"
               ></FormControl>
               <div className="d-flex justify-content-between">
                 <div className="">
@@ -141,9 +150,9 @@ export default function AssignmentEditor() {
                     type="date"
                     id="wd-available-from"
                     name="trip-start"
-                    value="2025-09-22"
+                    defaultValue={assignment.availableFrom}
                     min="2018-01-01"
-                    max="2018-12-31"
+                    max="2040-12-31"
                   ></FormControl>
                 </div>
                 <div>
@@ -154,9 +163,9 @@ export default function AssignmentEditor() {
                     type="date"
                     id="wd-available-until"
                     name="trip-start"
-                    value="2025-09-29"
+                    defaultValue={assignment.availableUntil}
                     min="2018-01-01"
-                    max="2018-12-31"
+                    max="2040-12-31"
                   ></FormControl>
                 </div>
               </div>
