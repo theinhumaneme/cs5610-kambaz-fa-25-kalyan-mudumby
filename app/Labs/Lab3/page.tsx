@@ -25,6 +25,7 @@ import PathParameters from "./PathParameters";
 import SimpleArrays from "./SimpleArrays";
 import Spreading from "./Spreader";
 import Square from "./Square";
+import Styles from "./Styles";
 import TemplateLiterals from "./TemplateLiterals";
 import TernaryOperator from "./TernaryOperator";
 import TodoItem from "./TodoItem";
@@ -65,6 +66,7 @@ export default function Lab3() {
         <FunctionDestructing />
         <DestructingImports />
         <Classes />
+        <Styles />
         <Add a={3} b={5} />
         <h4> Square of {square_value}</h4>
         <Square>{square_value}</Square>
