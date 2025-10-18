@@ -29,7 +29,7 @@ export default function Labs() {
         </li>
         <li>
           <Link
-            href="https://cs5610-kambaz-fa-25-kalyan-mudumby.vercel.app/"
+            href="https://a3-cs5610-kalyan-mudumby.vercel.app"
             id="wd-lab3-link"
           >
             Deployed Application Link{" "}

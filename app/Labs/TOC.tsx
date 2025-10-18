@@ -48,10 +48,7 @@ export default function TOC() {
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink
-          href="https://cs5610-kambaz-fall-25-kalyan-git-b94b2f-theinhumanemes-projects.vercel.app/"
-          as={Link}
-        >
+        <NavLink href="https://a3-cs5610-kalyan-mudumby.vercel.app/" as={Link}>
           Vercel Link
         </NavLink>
       </NavItem>
