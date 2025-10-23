@@ -43,12 +43,21 @@ export default function TOC() {
         </NavLink>
       </NavItem>
       <NavItem>
+        <NavLink
+          href="/Labs/Lab4"
+          as={Link}
+          className={`nav-link ${pathname.endsWith("Lab4") ? "active" : ""}`}
+        >
+          Lab 4
+        </NavLink>
+      </NavItem>
+      <NavItem>
         <NavLink href="/" as={Link}>
           Kambaz
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="https://a3-cs5610-kalyan-mudumby.vercel.app/" as={Link}>
+        <NavLink href="https://a4-cs5610-kalyan-mudumby.vercel.app/" as={Link}>
           Vercel Link
         </NavLink>
       </NavItem>

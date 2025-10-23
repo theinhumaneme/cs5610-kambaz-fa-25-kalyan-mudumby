@@ -23,13 +23,18 @@ export default function Labs() {
           </Link>
         </li>
         <li>
+          <Link href="/Labs/Lab4" id="wd-lab3-link">
+            Lab 4: Maintaining State in React Applications{" "}
+          </Link>
+        </li>
+        <li>
           <Link href="/" id="wd-lab3-link">
             Kambaz{" "}
           </Link>{" "}
         </li>
         <li>
           <Link
-            href="https://a3-cs5610-kalyan-mudumby.vercel.app"
+            href="https://a4-cs5610-kalyan-mudumby.vercel.app"
             id="wd-lab3-link"
           >
             Deployed Application Link{" "}
