@@ -1,15 +1,19 @@
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useParams } from "next/navigation";
 import { ReactNode } from "react";
 import { FaAlignJustify } from "react-icons/fa";
-import { courses } from "../../Database";
+import { useSelector } from "react-redux";
 import Breadcrumb from "./components/BreadCrumb";
 import CourseNavigation from "./navigation";
 
-export default async function CoursesLayout({
+export default function CoursesLayout({
   children,
   params,
 }: Readonly<{ children: ReactNode; params: Promise<{ cid: string }> }>) {
-  const { cid } = await params;
-  const course = courses.find((course) => course._id === cid);
+  const { cid } = useParams();
+  const { courses } = useSelector((state: any) => state.coursesReducer);
+  const course = courses.find((course: any) => course._id === cid);
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
@@ -19,7 +23,7 @@ export default async function CoursesLayout({
       <hr />
       <div className="d-flex">
         <div className="d-none d-md-block">
-          <CourseNavigation courseId={cid} />
+          <CourseNavigation />
         </div>
         <div className="flex-fill">{children} </div>
       </div>

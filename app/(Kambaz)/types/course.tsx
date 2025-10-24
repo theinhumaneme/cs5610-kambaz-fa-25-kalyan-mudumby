@@ -7,4 +7,5 @@ type Course = {
   department: string;
   credits: number;
   description: string;
+  courseImage: string;
 };

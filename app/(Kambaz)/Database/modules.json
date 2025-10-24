@@ -4,6 +4,7 @@
     "name": "Introduction to Rocket Propulsion",
     "description": "Basic principles of rocket propulsion and rocket engines.",
     "course": "RS101",
+    "editing": false,
     "lessons": [
       {
         "_id": "L101",

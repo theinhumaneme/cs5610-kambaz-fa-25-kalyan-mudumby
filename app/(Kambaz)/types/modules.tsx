@@ -4,4 +4,5 @@ type Modules = {
   description: string;
   course: string;
   lessons?: Lesson[];
+  editing: boolean;
 };

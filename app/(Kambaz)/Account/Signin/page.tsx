@@ -1,34 +1,57 @@
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { redirect } from "next/dist/client/components/navigation";
 import Link from "next/link";
-import { Col, FormControl } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, FormControl } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import * as db from "../../Database";
+import { setCurrentUser } from "../reducer";
+
 export default function Signin() {
+  const [credentials, setCredentials] = useState<any>({});
+  const dispatch = useDispatch();
+  const signin = () => {
+    const user = db.users.find(
+      (u: User) =>
+        u.username === credentials.username &&
+        u.password === credentials.password,
+    );
+    if (!user) return;
+    dispatch(setCurrentUser(user));
+    redirect("/Dashboard");
+  };
+
   return (
     <Col xs={4}>
       <div id="wd-signin-screen">
         <h1>Sign in</h1>
         <FormControl
+          defaultValue={credentials.username}
+          onChange={(e) =>
+            setCredentials({ ...credentials, username: e.target.value })
+          }
+          className="mb-2"
           placeholder="username"
           id="wd-username"
-          className="mb-2"
-          defaultValue="kalyanmudumby"
         />
-        <br />
         <FormControl
+          defaultValue={credentials.password}
+          onChange={(e) =>
+            setCredentials({ ...credentials, password: e.target.value })
+          }
+          className="mb-2"
           placeholder="password"
           type="password"
-          className="wd-password"
-          defaultValue="CS5610"
+          id="wd-password"
         />
-        <br />
-        <Link
-          id="wd-signin-btn"
-          href="/Dashboard"
-          className="btn btn-primary w-100 mb-2"
-        >
+        <Button onClick={signin} id="wd-signin-btn" className="w-100">
+          {" "}
           Sign in{" "}
-        </Link>
-        <br />
-        <Link id="wd-signup-link" href="Signup">
-          Sign up
+        </Button>
+        <Link id="wd-signup-link" href="/Kambaz/Account/Signup">
+          {" "}
+          Sign up{" "}
         </Link>
       </div>
     </Col>
