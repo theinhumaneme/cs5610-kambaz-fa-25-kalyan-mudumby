@@ -1,4 +1,7 @@
-import { assignments } from "@/app/(Kambaz)/Database";
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useParams } from "next/navigation";
+import { useState } from "react";
 import {
   Button,
   Col,
@@ -10,16 +13,17 @@ import {
   FormSelect,
   Row,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { updateAssignment } from "../reducer";
 
-export default async function AssignmentEditor({
-  params,
-}: {
-  params: Promise<{ cid: string; aid: string }>;
-}) {
-  const { cid, aid } = await params;
-  const assignment: Assignment = assignments.filter(
+export default function AssignmentEditor() {
+  const { cid, aid } = useParams();
+  const { assignments } = useSelector((state: any) => state.assignmentReducer);
+  const dispatch = useDispatch();
+  const a: Assignment = assignments.filter(
     (assignment: Assignment) => assignment._id === aid,
   )[0];
+  const [assignment, setAssignment] = useState(a);
   return (
     <div id="wd-assignments-editor">
       <Form>
@@ -30,13 +34,19 @@ export default async function AssignmentEditor({
               <FormControl
                 id="wd-name"
                 type="text"
-                defaultValue={assignment.title}
+                value={assignment.title}
+                onChange={(e) => {
+                  setAssignment({ ...assignment, title: e.target.value });
+                }}
               ></FormControl>
               <FormControl
                 className="mt-2"
                 id="wd-description"
                 as="textarea"
-                defaultValue={assignment.description}
+                value={assignment.description}
+                onChange={(e) => {
+                  setAssignment({ ...assignment, description: e.target.value });
+                }}
                 rows={3}
               ></FormControl>
             </Col>
@@ -49,7 +59,13 @@ export default async function AssignmentEditor({
               <FormControl
                 id="wd-points"
                 type="number"
-                defaultValue={assignment.points}
+                value={assignment.points}
+                onChange={(e) => {
+                  setAssignment({
+                    ...assignment,
+                    points: parseInt(e.target.value),
+                  });
+                }}
               ></FormControl>
             </Col>
           </Row>
@@ -58,11 +74,9 @@ export default async function AssignmentEditor({
               <FormLabel htmlFor="wd-group">Assignment Group</FormLabel>
             </Col>
             <Col md={4}>
-              <FormSelect id="wd-group">
+              <FormSelect id="wd-group" defaultValue={"QUIZZES"}>
                 <option value="ASSIGNMENTS">Assignments</option>
-                <option value="QUIZZES" selected={true}>
-                  Quizzes
-                </option>
+                <option value="QUIZZES">Quizzes</option>
               </FormSelect>
             </Col>
           </Row>
@@ -88,7 +102,7 @@ export default async function AssignmentEditor({
               </FormLabel>
             </Col>
             <Col md={4} className="border border-secondary rounded p-2">
-              <FormSelect id="wd-submission-type" value={"IN-PERSON"}>
+              <FormSelect id="wd-submission-type" defaultValue={"IN-PERSON"}>
                 <option value="ONLINE">Online</option>
                 <option value="IN-PERSON">In-Person</option>
               </FormSelect>
@@ -137,7 +151,9 @@ export default async function AssignmentEditor({
                 type="date"
                 id="wd-due-date"
                 name="trip-start"
-                defaultValue={assignment.dueDate}
+                onChange={(e) => {
+                  setAssignment({ ...assignment, dueDate: e.target.value });
+                }}
                 min="2018-01-01"
                 max="2040-12-31"
               ></FormControl>
@@ -150,7 +166,13 @@ export default async function AssignmentEditor({
                     type="date"
                     id="wd-available-from"
                     name="trip-start"
-                    defaultValue={assignment.availableFrom}
+                    value={assignment.availableFrom}
+                    onChange={(e) => {
+                      setAssignment({
+                        ...assignment,
+                        availableFrom: e.target.value,
+                      });
+                    }}
                     min="2018-01-01"
                     max="2040-12-31"
                   ></FormControl>
@@ -163,7 +185,13 @@ export default async function AssignmentEditor({
                     type="date"
                     id="wd-available-until"
                     name="trip-start"
-                    defaultValue={assignment.availableUntil}
+                    value={assignment.availableUntil}
+                    onChange={(e) => {
+                      setAssignment({
+                        ...assignment,
+                        availableUntil: e.target.value,
+                      });
+                    }}
                     min="2018-01-01"
                     max="2040-12-31"
                   ></FormControl>
@@ -182,7 +210,14 @@ export default async function AssignmentEditor({
               <Button variant="secondary">Cancel</Button>
             </Col>
             <Col md={1}>
-              <Button variant="danger">Save</Button>
+              <Button
+                variant="danger"
+                onClick={() => {
+                  dispatch(updateAssignment(assignment));
+                }}
+              >
+                Save
+              </Button>
             </Col>
           </Row>
         </Container>

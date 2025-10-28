@@ -1,18 +1,21 @@
-import { assignments } from "@/app/(Kambaz)/Database";
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
+import { redirect, useParams } from "next/navigation";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import { MdOutlineAssignment } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import AssignmentControls from "../components/AssignmentControls";
 import LessonControlButton from "../components/LessonControlsButton";
 import TopToolBar from "../components/TopToolBar";
+import { deleteAssignment } from "./reducer";
 
-export default async function Assignments({
-  params,
-}: {
-  params: Promise<{ cid: string; aid: string }>;
-}) {
-  const { cid, aid } = await params;
+export default function Assignments() {
+  const { cid, aid } = useParams();
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const { assignments } = useSelector((state: any) => state.assignmentReducer);
+  const dispatch = useDispatch();
   return (
     <div id="wd-assignments">
       <TopToolBar />
@@ -25,10 +28,9 @@ export default async function Assignments({
         <ListGroup className="wd-lessons rounded-0">
           {assignments
             .filter((assignment: Assignment) => assignment.course === cid)
-            .map((assignment) => (
-              <Link
+            .map((assignment: Assignment) => (
+              <div
                 key={assignment._id}
-                href={`/Courses/${cid}/Assignments/${assignment._id}`}
                 className="wd-assignment-link text-decoration-none"
               >
                 <ListGroupItem
@@ -38,16 +40,34 @@ export default async function Assignments({
                   <BsGripVertical className="me-2 fs-3" />
                   <MdOutlineAssignment className="text-success p-1 fs-1" />
                   <div className="flex-grow-1">
-                    <div className="fw-bold">{assignment.title}</div>
+                    <div className="fw-bold">
+                      <Link
+                        className="text-decoration-none"
+                        href={`/Courses/${cid}/Assignments/${assignment._id}`}
+                      >
+                        {assignment.title}
+                      </Link>
+                    </div>
                     <div className="text-muted" style={{ fontSize: "0.85rem" }}>
                       <span className="text-danger">Multiple Modules</span> |{" "}
-                      <strong>Not available until</strong> May 6 at 12:00 AM |{" "}
-                      <strong>Due </strong> May 13 at 11:59pm | 100 pts
+                      <strong>Not available until</strong>{" "}
+                      {assignment.availableFrom} at 12:00 AM |{" "}
+                      <strong>Due </strong> {assignment.dueDate} at 11:59pm |{" "}
+                      {assignment.points} pts
                     </div>
                   </div>
-                  <LessonControlButton />
+
+                  <LessonControlButton
+                    assignmentId={assignment._id}
+                    deleteAssignment={(assignmentId) => {
+                      dispatch(deleteAssignment(assignmentId));
+                    }}
+                    editAssignment={() => {
+                      redirect(`/Courses/${cid}/Assignments/${assignment._id}`);
+                    }}
+                  />
                 </ListGroupItem>
-              </Link>
+              </div>
             ))}
         </ListGroup>
       </div>

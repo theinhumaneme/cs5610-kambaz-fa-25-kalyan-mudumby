@@ -9,8 +9,7 @@ import CourseNavigation from "./navigation";
 
 export default function CoursesLayout({
   children,
-  params,
-}: Readonly<{ children: ReactNode; params: Promise<{ cid: string }> }>) {
+}: Readonly<{ children: ReactNode }>) {
   const { cid } = useParams();
   const { courses } = useSelector((state: any) => state.coursesReducer);
   const course = courses.find((course: any) => course._id === cid);

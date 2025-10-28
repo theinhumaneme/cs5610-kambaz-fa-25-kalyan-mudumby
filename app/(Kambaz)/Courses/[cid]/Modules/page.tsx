@@ -5,9 +5,9 @@ import { useState } from "react";
 import { FormControl, ListGroup, ListGroupItem } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import LessonControlButton from "../components/LessonControlsButton";
 import ModuleControlButton from "../components/ModuleControlButton";
 import ModulesControls from "../components/ModuleControls";
+import ModuleLessonControlButton from "../components/ModuleLessonControlButton";
 import { addModule, deleteModule, editModule, updateModule } from "./reducer";
 export default function Modules() {
   const { cid } = useParams();
@@ -73,7 +73,7 @@ export default function Modules() {
                       className="wd-lesson p-3 ps-1"
                     >
                       <BsGripVertical className="me-2 fs-3" /> {lesson.name}{" "}
-                      <LessonControlButton />
+                      <ModuleLessonControlButton />
                     </ListGroupItem>
                   ))}
                 </ListGroup>

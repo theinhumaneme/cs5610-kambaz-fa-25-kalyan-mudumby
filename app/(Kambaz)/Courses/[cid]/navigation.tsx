@@ -2,8 +2,7 @@
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 export default function CourseNavigation() {
-  const { courseId } = useParams();
-
+  const { cid } = useParams();
   const pathname = usePathname();
   const links = [
     "Home",
@@ -20,7 +19,7 @@ export default function CourseNavigation() {
       {links.map((link) => (
         <Link
           key={link}
-          href={`/Courses/${courseId}/${link}`}
+          href={`/Courses/${cid}/${link}`}
           id="wd-course-home-link"
           className={`list-group-item border-0 ${pathname.includes(link) ? "active" : "text-danger"}`}
         >
