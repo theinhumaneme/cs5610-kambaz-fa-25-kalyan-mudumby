@@ -14,16 +14,42 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAssignment } from "../reducer";
+import { addNewAssignment, updateAssignment } from "../reducer";
 
-export default function AssignmentEditor() {
+export default function AssignmentEditor({
+  operation,
+}: {
+  operation: (assignment: Assignment) => void;
+}) {
   const { cid, aid } = useParams();
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
   const dispatch = useDispatch();
-  const a: Assignment = assignments.filter(
-    (assignment: Assignment) => assignment._id === aid,
-  )[0];
+  let a: Assignment = {
+    _id: crypto.randomUUID(),
+    availableFrom: new Date().toISOString().split("T")[0],
+    availableUntil: new Date().toISOString().split("T")[0],
+    dueDate: new Date().toISOString().split("T")[0],
+    course: cid === undefined ? "00000" : cid?.toString(),
+    description: "Sample Description",
+    points: 0,
+    title: "Sample Title",
+  };
+  a =
+    aid === "new"
+      ? a
+      : assignments.filter(
+          (assignment: Assignment) => assignment._id === aid,
+        )[0];
+  operation =
+    aid === "new"
+      ? (assignment) => {
+          dispatch(addNewAssignment(assignment));
+        }
+      : (assignment) => {
+          dispatch(updateAssignment(assignment));
+        };
   const [assignment, setAssignment] = useState(a);
+
   return (
     <div id="wd-assignments-editor">
       <Form>
@@ -213,7 +239,7 @@ export default function AssignmentEditor() {
               <Button
                 variant="danger"
                 onClick={() => {
-                  dispatch(updateAssignment(assignment));
+                  operation(assignment);
                 }}
               >
                 Save

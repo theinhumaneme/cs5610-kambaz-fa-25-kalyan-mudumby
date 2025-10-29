@@ -1,7 +1,7 @@
 type Assignment = {
   _id: string;
   title: string;
-  course: string;
+  course?: string;
   description: string;
   dueDate: string;
   points: number;
