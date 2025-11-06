@@ -1,6 +1,6 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useParams } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 import { useState } from "react";
 import {
   Button,
@@ -233,13 +233,21 @@ export default function AssignmentEditor({
           <Row className="mt-2">
             <Col md={4}></Col>
             <Col md={1}>
-              <Button variant="secondary">Cancel</Button>
+              <Button
+                onClick={() => {
+                  redirect(`/Courses/${cid}/Assignments`);
+                }}
+                variant="secondary"
+              >
+                Cancel
+              </Button>
             </Col>
             <Col md={1}>
               <Button
                 variant="danger"
                 onClick={() => {
                   operation(assignment);
+                  redirect(`/Courses/${cid}/Assignments`);
                 }}
               >
                 Save
