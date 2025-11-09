@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormControl } from "react-bootstrap";
+import { FormCheck, FormControl } from "react-bootstrap";
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 export default function WorkingWithObjects() {
   const [assignment, setAssignment] = useState({
@@ -11,6 +11,7 @@ export default function WorkingWithObjects() {
     score: 0,
   });
   const ASSIGNMENT_API_URL = `${HTTP_SERVER}/lab5/assignment`;
+  console.log(assignment);
   return (
     <div id="wd-working-with-objects">
       <h3>Working With Objects</h3>
@@ -41,11 +42,45 @@ export default function WorkingWithObjects() {
         Update Title{" "}
       </a>
       <FormControl
-        className="w-75"
+        className="w-50"
         id="wd-assignment-title"
         defaultValue={assignment.title}
         onChange={(e) =>
           setAssignment({ ...assignment, title: e.target.value })
+        }
+      />
+      <hr />
+      <a
+        id="wd-update-assignment-title"
+        className="btn btn-primary float-end"
+        href={`${ASSIGNMENT_API_URL}/score/${assignment.score}`}
+      >
+        Update Score{" "}
+      </a>
+      <FormControl
+        className="w-50"
+        id="wd-assignment-title"
+        defaultValue={assignment.score}
+        type="number"
+        onChange={(e) =>
+          setAssignment({ ...assignment, score: parseInt(e.target.value) })
+        }
+      />
+      <hr />
+      <a
+        id="wd-update-assignment-title"
+        className="btn btn-primary float-end"
+        href={`${ASSIGNMENT_API_URL}/completed/${assignment.completed}`}
+      >
+        Update Status{" "}
+      </a>
+      <FormCheck
+        className="w-50"
+        id="wd-assignment-title"
+        defaultChecked={assignment.completed}
+        type="checkbox"
+        onClick={() =>
+          setAssignment({ ...assignment, completed: !assignment.completed })
         }
       />
       <hr />
