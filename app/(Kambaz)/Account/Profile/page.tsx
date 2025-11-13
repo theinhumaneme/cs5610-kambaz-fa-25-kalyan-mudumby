@@ -14,11 +14,16 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import * as client from "../client";
 import { setCurrentUser } from "../reducer";
 export default function Profile() {
   const [profile, setProfile] = useState<any>({});
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const updateProfile = async () => {
+    const updatedProfile = await client.updateUser(profile);
+    dispatch(setCurrentUser(updatedProfile));
+  };
   const fetchProfile = () => {
     if (!currentUser) return redirect("/Account/Signin");
     setProfile(currentUser);
@@ -155,6 +160,13 @@ export default function Profile() {
               </Row>
               <Row className="mt-3">
                 <Col md={2}></Col>
+                <Col md={4}>
+                  <Link href="Signin" className="text-decoration-none">
+                    <Button onClick={updateProfile} variant="secondary">
+                      Sign out
+                    </Button>
+                  </Link>
+                </Col>
                 <Col md={4}>
                   <Link href="Signin" className="text-decoration-none">
                     <Button onClick={signout} variant="danger">

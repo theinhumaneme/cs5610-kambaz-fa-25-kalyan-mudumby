@@ -1,6 +1,22 @@
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 import { Col, FormControl } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import * as client from "../client";
+import { setCurrentUser } from "../reducer";
+
 export default function Signup() {
+  const [user, setUser] = useState<any>({});
+  const dispatch = useDispatch();
+  const signup = async () => {
+    const currentUser = await client.signup(user);
+    dispatch(setCurrentUser(currentUser));
+    redirect("/Profile");
+  };
+
   return (
     <Col xs={4}>
       <div id="wd-signup-screen">

@@ -28,6 +28,11 @@ export default function Labs() {
           </Link>
         </li>
         <li>
+          <Link href="/Labs/Lab5" id="wd-lab3-link">
+            Implementing RESTful Web APIs with Express.js{" "}
+          </Link>
+        </li>
+        <li>
           <Link href="/" id="wd-lab3-link">
             Kambaz{" "}
           </Link>{" "}
@@ -42,7 +47,7 @@ export default function Labs() {
         </li>
         <li>
           <Link
-            href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby"
+            href="https://github.com/theinhumaneme/cs5610-kambaz-fa-25-kalyan-mudumby-nextjs"
             id="wd-lab3-link"
           >
             GitHub Repository{" "}
