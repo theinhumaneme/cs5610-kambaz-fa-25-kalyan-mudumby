@@ -1,17 +1,15 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from "@reduxjs/toolkit";
-import { courses } from "../Database";
 const initialState = {
-  courses: courses,
+  courses: [],
 };
 const coursesSlice = createSlice({
   name: "courses",
   initialState,
   reducers: {
     addNewCourse: (state, { payload: course }) => {
-      const newCourse = { ...course, _id: crypto.randomUUID() };
-      state.courses = [...state.courses, newCourse] as any;
+      state.courses = [...state.courses, course] as any;
     },
     deleteCourse: (state, { payload: courseId }) => {
       state.courses = state.courses.filter(
@@ -23,8 +21,12 @@ const coursesSlice = createSlice({
         c._id === course._id ? course : c,
       ) as any;
     },
+    setCourses: (state, { payload: courses }) => {
+      state.courses = courses;
+    },
   },
 });
-export const { addNewCourse, deleteCourse, updateCourse } =
+
+export const { addNewCourse, deleteCourse, updateCourse, setCourses } =
   coursesSlice.actions;
 export default coursesSlice.reducer;

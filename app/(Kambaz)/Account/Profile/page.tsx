@@ -28,7 +28,9 @@ export default function Profile() {
     if (!currentUser) return redirect("/Account/Signin");
     setProfile(currentUser);
   };
-  const signout = () => {
+  const signout = async () => {
+    await client.signout();
+
     dispatch(setCurrentUser(null));
     redirect("/Account/Signin");
   };
@@ -163,7 +165,7 @@ export default function Profile() {
                 <Col md={4}>
                   <Link href="Signin" className="text-decoration-none">
                     <Button onClick={updateProfile} variant="secondary">
-                      Sign out
+                      Update Profile
                     </Button>
                   </Link>
                 </Col>

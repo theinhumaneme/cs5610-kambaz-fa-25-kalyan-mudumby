@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
-import { Col, FormControl } from "react-bootstrap";
+import { Button, Col, FormControl } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import * as client from "../client";
 import { setCurrentUser } from "../reducer";
@@ -12,9 +12,17 @@ export default function Signup() {
   const [user, setUser] = useState<any>({});
   const dispatch = useDispatch();
   const signup = async () => {
-    const currentUser = await client.signup(user);
-    dispatch(setCurrentUser(currentUser));
-    redirect("/Profile");
+    if (user.password !== user.verifyPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    try {
+      const currentUser = await client.signup(user);
+      dispatch(setCurrentUser(currentUser));
+      redirect("/Profile");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -24,30 +32,28 @@ export default function Signup() {
         <FormControl
           id="wd-username"
           className="mb-2"
-          defaultValue="kalyanmudumby"
           placeholder="username"
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
         />
-        <br />
         <FormControl
           placeholder="password"
           type="password"
-          className="wd-password"
-          defaultValue="CS5610"
+          className="wd-password mb-2"
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
-        <br />
         <FormControl
           placeholder="verify password"
           type="password"
-          className="wd-password"
-          defaultValue="CS5610"
+          className="wd-password mb-2"
+          onChange={(e) => setUser({ ...user, verifyPassword: e.target.value })}
         />
-        <Link
+        <Button
           id="wd-signup-btn"
-          href="Profile"
+          onClick={signup}
           className="btn btn-primary w-100 mb-2"
         >
           Sign Up{" "}
-        </Link>
+        </Button>
         <br />
         <Link id="wd-sigin-link" href="Signin">
           Sign in

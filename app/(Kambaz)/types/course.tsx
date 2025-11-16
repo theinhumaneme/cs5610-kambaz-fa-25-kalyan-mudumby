@@ -1,4 +1,4 @@
-type Course = {
+export type Course = {
   _id: string;
   name: string;
   number: number;
