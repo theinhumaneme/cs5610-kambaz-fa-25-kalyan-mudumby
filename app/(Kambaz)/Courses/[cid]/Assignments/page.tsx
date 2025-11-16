@@ -1,7 +1,9 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Assignment } from "@/app/(Kambaz)/types/assignment";
 import Link from "next/link";
 import { redirect, useParams } from "next/navigation";
+import { useEffect } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import { MdOutlineAssignment } from "react-icons/md";
@@ -9,13 +11,32 @@ import { useDispatch, useSelector } from "react-redux";
 import AssignmentControls from "../components/AssignmentControls";
 import LessonControlButton from "../components/LessonControlsButton";
 import TopToolBar from "../components/TopToolBar";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment, setAssignments } from "./reducer";
+
+import * as client from "../../client";
 
 export default function Assignments() {
   const { cid, aid } = useParams();
-  const { currentUser } = useSelector((state: any) => state.accountReducer);
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
   const dispatch = useDispatch();
+
+  const fetchAssignments = async () => {
+    try {
+      const assignments = await client.fetchAllAssignments();
+      dispatch(setAssignments(assignments));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onDelete = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
   return (
     <div id="wd-assignments">
       <TopToolBar />
@@ -59,9 +80,7 @@ export default function Assignments() {
 
                   <LessonControlButton
                     assignmentId={assignment._id}
-                    deleteAssignment={(assignmentId) => {
-                      dispatch(deleteAssignment(assignmentId));
-                    }}
+                    deleteAssignment={onDelete}
                     editAssignment={() => {
                       redirect(`/Courses/${cid}/Assignments/${assignment._id}`);
                     }}

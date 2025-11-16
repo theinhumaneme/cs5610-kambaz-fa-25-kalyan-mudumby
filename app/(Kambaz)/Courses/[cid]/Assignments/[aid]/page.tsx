@@ -1,7 +1,8 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Assignment } from "@/app/(Kambaz)/types/assignment";
 import { redirect, useParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   Col,
@@ -14,41 +15,64 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import * as client from "../../../client";
 import { addNewAssignment, updateAssignment } from "../reducer";
 
-export default function AssignmentEditor({
-  operation,
-}: {
-  operation: (assignment: Assignment) => void;
-}) {
+export default function AssignmentEditor() {
   const { cid, aid } = useParams();
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
   const dispatch = useDispatch();
-  let a: Assignment = {
-    _id: crypto.randomUUID(),
+
+  const newAssignmentTemplate: Assignment = {
+    _id: "new",
     availableFrom: new Date().toISOString().split("T")[0],
     availableUntil: new Date().toISOString().split("T")[0],
     dueDate: new Date().toISOString().split("T")[0],
-    course: cid === undefined ? "00000" : cid?.toString(),
-    description: "Sample Description",
-    points: 0,
-    title: "Sample Title",
+    course: cid as string,
+    description: "New Assignment Description",
+    points: 100,
+    title: "New Assignment Title",
   };
-  a =
-    aid === "new"
-      ? a
-      : assignments.filter(
-          (assignment: Assignment) => assignment._id === aid,
-        )[0];
-  operation =
-    aid === "new"
-      ? (assignment) => {
-          dispatch(addNewAssignment(assignment));
-        }
-      : (assignment) => {
-          dispatch(updateAssignment(assignment));
+
+  const [assignment, setAssignment] = useState<Assignment>(
+    newAssignmentTemplate,
+  );
+
+  useEffect(() => {
+    if (aid === "new") {
+      setAssignment(newAssignmentTemplate);
+    } else if (assignments.length > 0) {
+      const foundAssignment = assignments.find(
+        (a: Assignment) => a._id === aid,
+      );
+      if (foundAssignment) {
+        setAssignment(foundAssignment);
+      }
+    }
+  }, [aid, assignments]);
+
+  const handleSave = async () => {
+    try {
+      if (aid === "new") {
+        const newAssignmentWithId = {
+          ...assignment,
+          _id: crypto.randomUUID(),
+          course: cid as string,
         };
-  const [assignment, setAssignment] = useState(a);
+        const createdAssignment = await client.createAssignment(
+          newAssignmentWithId,
+          cid as string,
+        );
+        dispatch(addNewAssignment(createdAssignment));
+      } else {
+        await client.updateAssignment(assignment);
+        dispatch(updateAssignment(assignment));
+      }
+    } catch (error) {
+      console.error("Failed to save assignment", error);
+    }
+    redirect(`/Courses/${cid}/Assignments`);
+  };
 
   return (
     <div id="wd-assignments-editor">
@@ -243,13 +267,7 @@ export default function AssignmentEditor({
               </Button>
             </Col>
             <Col md={1}>
-              <Button
-                variant="danger"
-                onClick={() => {
-                  operation(assignment);
-                  redirect(`/Courses/${cid}/Assignments`);
-                }}
-              >
+              <Button variant="danger" onClick={handleSave}>
                 Save
               </Button>
             </Col>

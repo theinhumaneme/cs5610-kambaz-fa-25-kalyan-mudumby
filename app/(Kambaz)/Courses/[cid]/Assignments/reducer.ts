@@ -1,14 +1,18 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from "@reduxjs/toolkit";
-import { assignments } from "../../../Database";
-const initialState = {
-  assignments: assignments,
+import { Assignment } from "../../../types/assignment";
+
+const initialState: { assignments: Assignment[] } = {
+  assignments: [],
 };
 const assignmentsSlice = createSlice({
   name: "assignments",
   initialState,
   reducers: {
+    setAssignments: (state, { payload: assignments }) => {
+      state.assignments = assignments;
+    },
     addNewAssignment: (state, { payload: assignment }) => {
       const newAssignment = { ...assignment, _id: crypto.randomUUID() };
       state.assignments = [...state.assignments, newAssignment] as any;
@@ -24,9 +28,9 @@ const assignmentsSlice = createSlice({
       );
     },
     editAssignment: (state, { payload: assignmentId }) => {
-      state.assignments = state.assignments.map((a: any) =>
+      state.assignments = state.assignments.map((a: Assignment) =>
         a._id === assignmentId ? { ...a, editing: true } : a,
-      ) as any;
+      );
     },
   },
 });
@@ -34,6 +38,7 @@ export const {
   addNewAssignment,
   deleteAssignment,
   updateAssignment,
+  setAssignments,
   editAssignment,
 } = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;
