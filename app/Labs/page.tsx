@@ -29,7 +29,7 @@ export default function Labs() {
         </li>
         <li>
           <Link href="/Labs/Lab5" id="wd-lab3-link">
-            Implementing RESTful Web APIs with Express.js{" "}
+            Lab 5: Implementing RESTful Web APIs with Express.js{" "}
           </Link>
         </li>
         <li>

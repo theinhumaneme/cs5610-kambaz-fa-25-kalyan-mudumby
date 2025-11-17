@@ -27,7 +27,7 @@ export default function WorkingWithModules() {
         className="btn btn-primary"
         href={`${HTTP_SERVER}/lab5/module/name`}
       >
-        Get Title
+        Get Module Name
       </a>
       <hr />
       <h4>Modifying Properties</h4>
@@ -36,7 +36,7 @@ export default function WorkingWithModules() {
         className="btn btn-primary float-end"
         href={`${ASSIGNMENT_API_URL}/name/${module.name}`}
       >
-        Update Title{" "}
+        Update Module Name{" "}
       </a>
       <FormControl
         className="w-50"
