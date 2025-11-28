@@ -43,7 +43,6 @@ export default function Dashboard() {
   const fetchEnrollments = async () => {
     try {
       const enrollments = await client.fetchAllEnrollments();
-      console.log(courses);
       dispatch(setEnrollments(enrollments));
     } catch (error) {
       console.error(error);
@@ -107,7 +106,7 @@ export default function Dashboard() {
         {toggle ? "Show Enrolled Only" : "Show All Courses"}
       </button>
       <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
-      {currentUser.role === "FACULTY" && (
+      {(currentUser.role === "FACULTY" || currentUser.role === "ADMIN") && (
         <Container>
           <h5>
             New Course
@@ -205,7 +204,8 @@ export default function Dashboard() {
                         </Button>
                       )}
 
-                      {currentUser.role === "FACULTY" && (
+                      {(currentUser.role === "FACULTY" ||
+                        currentUser.role === "ADMIN") && (
                         <>
                           <Button
                             variant="danger"

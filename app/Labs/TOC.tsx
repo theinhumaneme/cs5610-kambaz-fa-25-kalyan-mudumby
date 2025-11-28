@@ -66,7 +66,7 @@ export default function TOC() {
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="https://a5-cs5610-kalyan-mudumby.vercel.app/" as={Link}>
+        <NavLink href="https://a6-cs5610-kalyan-mudumby.vercel.app/" as={Link}>
           Vercel Link
         </NavLink>
       </NavItem>
