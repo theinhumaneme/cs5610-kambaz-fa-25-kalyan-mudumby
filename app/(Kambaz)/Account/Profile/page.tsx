@@ -104,9 +104,9 @@ export default function Profile() {
                     id="wd-lastname"
                     type="text"
                     placeholder="Last Name"
-                    value={profile.firstName}
+                    value={profile.lastName}
                     onChange={(e) =>
-                      setProfile({ ...profile, firstName: e.target.value })
+                      setProfile({ ...profile, lastName: e.target.value })
                     }
                   />
                 </Col>
@@ -163,11 +163,9 @@ export default function Profile() {
               <Row className="mt-3">
                 <Col md={2}></Col>
                 <Col md={4}>
-                  <Link href="Signin" className="text-decoration-none">
-                    <Button onClick={updateProfile} variant="secondary">
-                      Update Profile
-                    </Button>
-                  </Link>
+                  <Button onClick={updateProfile} variant="secondary">
+                    Update Profile
+                  </Button>
                 </Col>
                 <Col md={4}>
                   <Link href="Signin" className="text-decoration-none">
