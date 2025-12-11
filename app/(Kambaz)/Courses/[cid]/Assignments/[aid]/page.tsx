@@ -21,6 +21,7 @@ import { addNewAssignment, updateAssignment } from "../reducer";
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
   const dispatch = useDispatch();
 
   const newAssignmentTemplate: Assignment = {
@@ -74,6 +75,8 @@ export default function AssignmentEditor() {
     redirect(`/Courses/${cid}/Assignments`);
   };
 
+  const isStudent = currentUser && currentUser.role === "STUDENT";
+
   return (
     <div id="wd-assignments-editor">
       <Form>
@@ -88,6 +91,7 @@ export default function AssignmentEditor() {
                 onChange={(e) => {
                   setAssignment({ ...assignment, title: e.target.value });
                 }}
+                readOnly={isStudent}
               ></FormControl>
               <FormControl
                 className="mt-2"
@@ -98,6 +102,7 @@ export default function AssignmentEditor() {
                   setAssignment({ ...assignment, description: e.target.value });
                 }}
                 rows={3}
+                readOnly={isStudent}
               ></FormControl>
             </Col>
           </Row>
@@ -116,6 +121,7 @@ export default function AssignmentEditor() {
                     points: parseInt(e.target.value),
                   });
                 }}
+                readOnly={isStudent}
               ></FormControl>
             </Col>
           </Row>
@@ -124,7 +130,11 @@ export default function AssignmentEditor() {
               <FormLabel htmlFor="wd-group">Assignment Group</FormLabel>
             </Col>
             <Col md={4}>
-              <FormSelect id="wd-group" defaultValue={"QUIZZES"}>
+              <FormSelect
+                id="wd-group"
+                defaultValue={"QUIZZES"}
+                disabled={isStudent}
+              >
                 <option value="ASSIGNMENTS">Assignments</option>
                 <option value="QUIZZES">Quizzes</option>
               </FormSelect>
@@ -137,11 +147,9 @@ export default function AssignmentEditor() {
               </FormLabel>
             </Col>
             <Col md={4}>
-              <FormSelect id="wd-display-grade-as">
+              <FormSelect id="wd-display-grade-as" disabled={isStudent}>
                 <option value="PERCENTAGE">Percentage</option>
-                <option selected={true} value="GRADE-POINT">
-                  Grade Point
-                </option>
+                <option value="GRADE-POINT">Grade Point</option>
               </FormSelect>
             </Col>
           </Row>
@@ -152,7 +160,11 @@ export default function AssignmentEditor() {
               </FormLabel>
             </Col>
             <Col md={4} className="border border-secondary rounded p-2">
-              <FormSelect id="wd-submission-type" defaultValue={"IN-PERSON"}>
+              <FormSelect
+                id="wd-submission-type"
+                defaultValue={"IN-PERSON"}
+                disabled={isStudent}
+              >
                 <option value="ONLINE">Online</option>
                 <option value="IN-PERSON">In-Person</option>
               </FormSelect>
@@ -161,26 +173,31 @@ export default function AssignmentEditor() {
                 type="checkbox"
                 id="wd-text-entry"
                 label="Text Entry"
+                disabled={isStudent}
               />
               <FormCheck
                 type="checkbox"
                 id="wd-website-url"
                 label="Website URL"
+                disabled={isStudent}
               />
               <FormCheck
                 type="checkbox"
                 id="wd-media-recordings"
                 label="Media Recordings"
+                disabled={isStudent}
               />
               <FormCheck
                 type="checkbox"
                 id="wd-student-annotation"
                 label="Student Annotations"
+                disabled={isStudent}
               />
               <FormCheck
                 type="checkbox"
                 id="wd-file-upload"
                 label="File Uploads"
+                disabled={isStudent}
               />
             </Col>
           </Row>
@@ -193,6 +210,7 @@ export default function AssignmentEditor() {
                 id="wd-assign-to"
                 type="text"
                 defaultValue={"Everyone"}
+                readOnly={isStudent}
               ></FormControl>
               <FormLabel className="mt-2" htmlFor="wd-due-date">
                 Due Date
@@ -206,6 +224,7 @@ export default function AssignmentEditor() {
                 }}
                 min="2018-01-01"
                 max="2040-12-31"
+                readOnly={isStudent}
               ></FormControl>
               <div className="d-flex justify-content-between">
                 <div className="">
@@ -225,6 +244,7 @@ export default function AssignmentEditor() {
                     }}
                     min="2018-01-01"
                     max="2040-12-31"
+                    readOnly={isStudent}
                   ></FormControl>
                 </div>
                 <div>
@@ -244,6 +264,7 @@ export default function AssignmentEditor() {
                     }}
                     min="2018-01-01"
                     max="2040-12-31"
+                    readOnly={isStudent}
                   ></FormControl>
                 </div>
               </div>
@@ -254,24 +275,26 @@ export default function AssignmentEditor() {
               <hr />
             </Col>
           </Row>
-          <Row className="mt-2">
-            <Col md={4}></Col>
-            <Col md={1}>
-              <Button
-                onClick={() => {
-                  redirect(`/Courses/${cid}/Assignments`);
-                }}
-                variant="secondary"
-              >
-                Cancel
-              </Button>
-            </Col>
-            <Col md={1}>
-              <Button variant="danger" onClick={handleSave}>
-                Save
-              </Button>
-            </Col>
-          </Row>
+          {!isStudent && (
+            <Row className="mt-2">
+              <Col md={4}></Col>
+              <Col md={1}>
+                <Button
+                  onClick={() => {
+                    redirect(`/Courses/${cid}/Assignments`);
+                  }}
+                  variant="secondary"
+                >
+                  Cancel
+                </Button>
+              </Col>
+              <Col md={1}>
+                <Button variant="danger" onClick={handleSave}>
+                  Save
+                </Button>
+              </Col>
+            </Row>
+          )}
         </Container>
       </Form>
     </div>

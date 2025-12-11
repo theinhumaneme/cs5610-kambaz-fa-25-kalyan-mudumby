@@ -18,6 +18,7 @@ import * as client from "../../client";
 export default function Assignments() {
   const { cid, aid } = useParams();
   const { assignments } = useSelector((state: any) => state.assignmentReducer);
+  const { currentUser } = useSelector((state: any) => state.accountReducer); // Get currentUser
   const dispatch = useDispatch();
 
   const fetchAssignments = async () => {
@@ -44,7 +45,9 @@ export default function Assignments() {
         <div className="wd-title p-3 ps-2 bg-secondary">
           <BsGripVertical className="me-2 fs-3" />
           Assignments
-          <AssignmentControls />
+          {currentUser &&
+            (currentUser.role === "FACULTY" ||
+              currentUser.role === "ADMIN") && <AssignmentControls />}
         </div>
         <ListGroup className="wd-lessons rounded-0">
           {assignments
@@ -78,13 +81,19 @@ export default function Assignments() {
                     </div>
                   </div>
 
-                  <LessonControlButton
-                    assignmentId={assignment._id}
-                    deleteAssignment={onDelete}
-                    editAssignment={() => {
-                      redirect(`/Courses/${cid}/Assignments/${assignment._id}`);
-                    }}
-                  />
+                  {currentUser &&
+                    (currentUser.role === "FACULTY" ||
+                      currentUser.role === "ADMIN") && (
+                      <LessonControlButton
+                        assignmentId={assignment._id}
+                        deleteAssignment={onDelete}
+                        editAssignment={() => {
+                          redirect(
+                            `/Courses/${cid}/Assignments/${assignment._id}`,
+                          );
+                        }}
+                      />
+                    )}
                 </ListGroupItem>
               </div>
             ))}
