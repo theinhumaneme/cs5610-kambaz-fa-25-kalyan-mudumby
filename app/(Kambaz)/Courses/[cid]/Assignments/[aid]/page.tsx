@@ -75,7 +75,10 @@ export default function AssignmentEditor() {
     redirect(`/Courses/${cid}/Assignments`);
   };
 
-  const isStudent = currentUser && currentUser.role === "STUDENT";
+  const isStudent =
+    currentUser &&
+    (currentUser.role === "STUDENT" || currentUser.role === "USER");
+  console.log(currentUser.role);
 
   return (
     <div id="wd-assignments-editor">
